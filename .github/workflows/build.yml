@@ -15,10 +15,10 @@ jobs:
         os: [windows-latest, macos-latest]
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     
     - name: Set up Python 3.9
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v5
       with:
         python-version: 3.9
 
@@ -30,14 +30,14 @@ jobs:
     - name: Build Windows executable
       if: runner.os == 'Windows'
       run: |
-        pyinstaller --onefile --windowed --name "PacmanVintage-Windows" pacman_game.py
+        pyinstaller --onefile --windowed --name "PacmanVintage-Windows" pacman.py
         mkdir release
         copy dist\PacmanVintage-Windows.exe release\
 
     - name: Build macOS executable  
       if: runner.os == 'macOS'
       run: |
-        pyinstaller --onefile --windowed --name "PacmanVintage-Mac" pacman_game.py
+        pyinstaller --onefile --windowed --name "PacmanVintage-Mac" pacman.py
         mkdir release
         cp dist/PacmanVintage-Mac release/
 
