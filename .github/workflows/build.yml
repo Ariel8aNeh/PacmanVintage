@@ -42,7 +42,7 @@ jobs:
         cp dist/PacmanVintage-Mac release/
 
     - name: Upload artifacts
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: pacman-${{ matrix.os }}
         path: release/
